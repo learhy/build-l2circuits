@@ -1,0 +1,31 @@
+yaml_data = \
+    """---
+    IfcTable:
+        get: interfaces/login/user
+        view: userView
+
+    userView:
+        fields:
+            uid: uid
+            class: class
+
+    PolicyRuleTable:
+      get: security/policies/policy/policy
+      required_keys:
+        policy:
+          - from-zone-name
+          - to-zone-name
+      view: policyRuleView
+
+    policyRuleView:
+      groups:
+        match: match
+        then: then
+      fields_match:
+        match_src: source-address
+        match_dst: destination-address
+        match_app: application
+      fields_then:
+        log_init : { log/session-init: flag }
+        action : deny | permit
+      """
