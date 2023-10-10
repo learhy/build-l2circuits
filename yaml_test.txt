@@ -27,5 +27,5 @@ yaml_data = \
         match_app: application
       fields_then:
         log_init : { log/session-init: flag }
-        action : deny | permit
+        action : deny | permit | check
       """
